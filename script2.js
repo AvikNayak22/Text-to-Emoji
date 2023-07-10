@@ -1,38 +1,33 @@
-const text = document.querySelector("#textmsg");
-const password = document.querySelector("#password");
-const result = document.querySelector("#result");
-var clutter = "";
-var parinam = "";
+// Selecting the required HTML elements
+const text = document.querySelector("#textmsg"); // Input text element
+const password = document.querySelector("#password"); // Password input element
+const result = document.querySelector("#result"); // Result display element
 
+// Variables to store intermediate and final results
+var clutter = ""; // Intermediate encrypted text
+var parinam = ""; // Intermediate decrypted text
+
+// Function for encryption
 function encryption() {
   document.querySelector("#encrypt-btn").addEventListener("click", function () {
-    // get the password
-
+    // Get the password
     var pass = document.getElementById("password").value;
     console.log(pass);
 
-    // get the input
-
+    // Get the input text
     var input = document.getElementById("textmsg").value;
     console.log(input);
 
-    //converting it into a set of emojis
-
+    // Convert input text into a set of emojis
     var str = input.split("");
     str.forEach((element) => {
       clutter += `&#128${element.charCodeAt()} `;
-      // console.log((element.charCodeAt()) * Math.floor(Math.random() * 10))
     });
-    // console.log(clutter)
 
-    //saving emojis in localstorage
-
-    // localStorage.setItem("emojis", clutter)
-
-    //showing result
-
+    // Display the encrypted text
     document.querySelector("#result").innerHTML = clutter;
 
+    // Store encrypted data in local storage
     var dataarr = [];
     if (JSON.parse(localStorage.getItem("data1"))) {
       dataarr = JSON.parse(localStorage.getItem("data1"));
@@ -45,6 +40,7 @@ function encryption() {
   });
 }
 
+// Function for decryption
 function decryption() {
   document.querySelector("#decrypt-btn").addEventListener("click", function () {
     var clutter2 = "";
@@ -55,7 +51,6 @@ function decryption() {
     var str2 = input2.split(" ");
     str2.forEach((element) => {
       clutter2 += `&#${element.codePointAt(0)} `;
-      // console.log((element.charCodeAt()) * Math.floor(Math.random() * 10))
     });
     console.log(clutter2);
     var found;
@@ -69,7 +64,6 @@ function decryption() {
       console.log("jay ho");
       document.querySelector("#result").style.display = `block`;
       document.querySelector("#result").style.color = `#eee`;
-
       document.querySelector("#result").innerHTML = found.input;
     } else {
       document.querySelector("#result").style.display = `block`;
@@ -79,11 +73,10 @@ function decryption() {
   });
 }
 
+// Function to handle button clicks and switch between encryption and decryption sections
 function btnClicking() {
   document.querySelector("button").addEventListener("click", function () {
     document.querySelector("#result").style.display = "block";
-    // console.log(localStorage.getItem("password"))
-    // console.log(localStorage.getItem("emojis"))
   });
   document.querySelector("#dec-btn").addEventListener("click", function () {
     document.querySelector("#result").style.display = "none";
@@ -91,7 +84,6 @@ function btnClicking() {
     document.querySelector("#encryption").style.display = "none";
     document.querySelector("#dec-btn").style.backgroundColor = "#03D476";
     document.querySelector("#enc-btn").style.backgroundColor = "#194359";
-    // document.querySelector("#enc-btn").style.color = "black";
     document.querySelector("#main>h1 span img").style.rotate = "-180deg";
   });
   document.querySelector("#enc-btn").addEventListener("click", function () {
@@ -99,16 +91,13 @@ function btnClicking() {
     document.querySelector("#result").style.display = "none";
     document.querySelector("#encryption").style.display = "block";
     document.querySelector("#dec-btn").style.backgroundColor = "#194359";
-    // document.querySelector("#dec-btn").style.color = "black";
     document.querySelector("#enc-btn").style.backgroundColor = "#03D476";
     document.querySelector("#main>h1 span img").style.rotate = "-360deg";
   });
 }
 
+// Call the encryption, decryption, and button click handling functions
 encryption();
-
 decryption();
-
 btnClicking();
 
-// I am competitive and I feel bad when we lose. You can see it in me when we've lost. I'm in a bad way. I don't like to talk to anyone.
