@@ -35,4 +35,4 @@ __Screenshot 2__ <br/>
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, please create a new issue or submit a pull request.
 
 ## Acknowledgement
-This project was inspired my https://txtmoji.com/.
+This project was inspired by  [txtmoji](https://txtmoji.com/).
