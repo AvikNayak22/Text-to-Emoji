@@ -1,65 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full w-full">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Text to Emoji</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+
     <link rel="stylesheet" href="style2.css" />
   </head>
 
-  <body>
-    <div id="main">
-      <h1>
-        Text <span><img src="wap.png" alt="" /></span> Emojis
+  <body class="h-full w-full">
+    <div
+      class="h-full w-full bg-[#002e46] flex items-center justify-center flex-col"
+    >
+      <h1 class=" text-3xl md:text-5xl flex items-center">
+        Text
+        <span class="flex items-center mx-[15px] my-0"
+          ><img
+            class="h-10 transition-[0.3s] duration-[ease]"
+            src="wap.png"
+            alt=""
+        /></span>
+        Emojis
       </h1>
-      <div id="endec-div">
-        <h3 id="enc-btn">
-          <span><img src="lp.png" alt="" /></span> Encrypt Text
+      <div id="endec-div" class="flex items-center justify-between bg-[#194359] h-16 w-[75%] md:w-[28%]  mx-0 my-[35px] p-2 rounded-[10px]">
+        <h3 id="enc-btn" class="h-12 w-30 text-[14px] md:text-[17px] bg-[#03d476] flex items-center font-medium cursor-pointer transition-[0.2s] duration-[ease] px-2.5 py-3 mr-2 rounded-lg">
+          <span class="flex items-center mr-2.5"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="18"
+              fill="currentColor"
+              class="bi bi-lock-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"
+              /></svg
+          ></span>
+          Encrypt Text
         </h3>
-        <h3 id="dec-btn">
-          <span><img src="open.png" alt="" /></span> Decrypt Emojis
+        <h3 id="dec-btn" class="h-12 w-30 text-[14px] md:text-[17px] bg-[#03d476] flex items-center font-medium cursor-pointer transition-[0.2s] duration-[ease] px-2.5 py-3 rounded-lg">
+          <span
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="18"
+              fill="currentColor"
+              class="bi bi-unlock-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2"
+              /></svg
+          ></span>
+          Decrypt Emojis
         </h3>
       </div>
-      <div id="encryption">
-        <h5>1. Type a message</h5>
+      <div id="encryption" class="w-[75%] md:w-[40%] flex items-start justify-around flex-col">
+        <h5 class="text-base font-medium mb-[13px]">1. Type a message</h5>
         <textarea
           placeholder="Write your message here."
           name=""
           id="textmsg"
           cols="30"
           rows="10"
+          class="w-full h-[70px] border text-[17px] bg-[#194359] mb-[50px] p-2.5 rounded-lg border-solid border-[#255e80]"
         ></textarea>
-        <h5>2. Set a password</h5>
-        <input placeholder="e.g. 1234" type="password" name="" id="password" />
-        <h5>3. Encrypt message</h5>
-        <button id="encrypt-btn">
-          <span><img src="./lp.png" alt="" /></span>Encrypt Text
+        <h5 class="text-base font-medium mb-[13px]">2. Set a password</h5>
+        <input class="w-full border text-[17px] bg-[#194359] mb-[50px] p-2.5 rounded-lg border-solid border-[#255e80]" placeholder="e.g. 1234" type="password" name="" id="password" />
+        <h5 class="text-base font-medium mb-[13px]">3. Encrypt message</h5>
+        <button id="encrypt-btn" class="flex items-center bg-[#03d476] w-full justify-center text-[#eee] text-[17px] cursor-pointer p-2.5 rounded-[10px] border-[none]">
+          <span class="flex mr-2.5"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="18"
+              fill="currentColor"
+              class="bi bi-lock-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"
+              /></svg></span
+          >Encrypt Text
         </button>
       </div>
-      <div id="decryption">
-        <h5>1. Paste encrypted message</h5>
+      <div id="decryption" class="w-[75%] md:w-[40%] items-start justify-around flex-col hidden">
+        <h5 class="text-base font-medium mb-[13px]">1. Paste encrypted message</h5>
         <textarea
           placeholder="Paste emoji here."
           name=""
           id="emojimsg"
           cols="30"
           rows="10"
+          class="w-full h-[70px] border text-[17px] bg-[#194359] mb-[50px] p-2.5 rounded-lg border-solid border-[#255e80]"
         ></textarea>
-        <h5>2. Type a password</h5>
+        <h5 class="text-base font-medium mb-[13px]">2. Type a password</h5>
         <input
           placeholder="e.g. 1234"
           type="password"
           name=""
           id="finalpassword"
+          class="w-full border text-[17px] bg-[#194359] mb-[50px] p-2.5 rounded-lg border-solid border-[#255e80]"
         />
-        <h5>3. Decrypt Emojis</h5>
-        <button id="decrypt-btn">
-          <span><img src="./open.png" alt="" /></span>Decrypt Text
+        <h5 class="text-base font-medium mb-[13px]">3. Decrypt Emojis</h5>
+        <button id="decrypt-btn" class="flex items-center bg-[#03d476] w-full justify-center text-[#eee] text-[17px] cursor-pointer p-2.5 rounded-[10px] border-[none]">
+          <span
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="18"
+              fill="currentColor"
+              class="bi bi-unlock-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2"
+              /></svg></span
+          >Decrypt Text
         </button>
       </div>
-      <div id="result"></div>
+      <div id="result" class="text-lg bg-[#194359] border w-[45%] hidden mt-10 p-5 rounded-[10px] border-solid border-[#255e80]"></div>
     </div>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="script2.js"></script>
   </body>
 </html>
